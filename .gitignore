@@ -1,0 +1,23 @@
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/storage/logs/*
+/vendor
+/.idea
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+.env
+
+# Skip package file from versoning
+*.zip
+# Exclude OS specific files
+.DS_Store
+# ignore PHPStorm extra directories
+.idea/
+# Project exclude paths
+/storage/app/
+/storage/debugbar/
+/storage/framework/
