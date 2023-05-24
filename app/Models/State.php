@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class State extends Model
 {
-    protected $guarded = [];
+    protected $fillable = [
+        'state_name',
+        'country_id'
+];
 
     public $timestamps = false;
 

@@ -64,7 +64,7 @@ Route::post('get-city-by-state', ['as' => 'get_city_by_state', 'uses' => 'AdsCon
 Route::post('switch/product-view', ['as' => 'switch_grid_list_view', 'uses' => 'AdsController@switchGridListView']);
 
 Route::get('post-new', ['as' => 'create_ad', 'uses' => 'AdsController@create']);
-Route::post('post-new', ['uses' => 'AdsController@store']);
+Route::post('store-post-new', ['uses' => 'AdsController@store'])->name('store.new.post');
 
 //Post bid
 Route::post('{id}/post-new', ['as' => 'post_bid', 'uses' => 'BidController@postBid']);

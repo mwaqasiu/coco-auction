@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Console\Commands\AdUpdateDate;
 use App\Console\Commands\AppOptimizeClear;
+use App\Console\Commands\ExpireAuction;
 use App\Console\Commands\ImportDB;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -19,6 +20,7 @@ class Kernel extends ConsoleKernel
         AppOptimizeClear::class,
         AdUpdateDate::class,
         ImportDB::class,
+        ExpireAuction::class
     ];
 
     /**
@@ -30,6 +32,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->command('app:expire-auction')
+            ->everyMinute();
     }
 
     /**

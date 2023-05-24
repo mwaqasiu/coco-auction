@@ -15,6 +15,7 @@ use App\Models\Report_ad;
 use App\Models\State;
 use App\Models\Sub_Category;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -127,9 +128,9 @@ class AdsController extends Controller
             'address' => 'required',
         ];
 
-        if ($ads_price_plan != 'all_ads_free') {
-            $rules['price_plan'] = 'required';
-        }
+//        if ($ads_price_plan != 'all_ads_free') {
+//            $rules['price_plan'] = 'required';
+//        }
 
         if ($request->category) {
             if ($sub_category->category_type == 'jobs') {
@@ -192,7 +193,6 @@ class AdsController extends Controller
             'ad_condition' => $request->condition,
             'price' => $request->price,
             'is_negotiable' => $is_negotialble,
-
             'seller_name' => $request->seller_name,
             'seller_email' => $request->seller_email,
             'seller_phone' => $request->seller_phone,
@@ -219,7 +219,7 @@ class AdsController extends Controller
         }
         if ($sub_category->category_type == 'auction') {
             $data['category_type'] = 'auction';
-            $data['expired_at'] = $request->bid_deadline;
+            $data['expired_at'] = Carbon::parse($request->bid_deadline)->setSeconds(0);
         }
         //Check ads moderation settings
         if (get_option('ads_moderation') == 'direct_publish') {

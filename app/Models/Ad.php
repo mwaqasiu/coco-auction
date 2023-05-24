@@ -8,7 +8,33 @@ use Illuminate\Support\Facades\Auth;
 
 class Ad extends Model
 {
-    protected $guarded = [];
+    protected $fillable = [
+        'title',
+        'slug',
+        'description',
+        'category_id',
+        'sub_category_id',
+        'brand_id',
+        'type',
+        'ad_condition',
+        'price',
+        'is_negotiable',
+        'seller_name',
+        'seller_email',
+        'seller_phone',
+        'country_id',
+        'state_id',
+        'city_id',
+        'address',
+        'video_url',
+        'category_type',
+        'price_plan',
+        'mark_ad_urgent',
+        'status',
+        'user_id',
+        'latitude',
+        'longitude',
+    ];
 
     public function user()
     {
